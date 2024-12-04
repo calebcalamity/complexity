@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complexity osu! Skin - Cheats</title>
+    <title>Hitsounds Downloads - Complexity osu! Skin</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -36,6 +36,19 @@
         section {
             padding: 20px;
         }
+        .download-link {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+        }
+        .download-link:hover {
+            background-color: #e0e0e0;
+        }
         footer {
             background-color: #333;
             color: white;
@@ -45,24 +58,7 @@
             bottom: 0;
             width: 100%;
         }
-        .textbox {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
     </style>
-    <script>
-        function checkInput() {
-            var input = document.getElementById("codeInput").value.toLowerCase();
-            if (input === "special thanks") {
-                window.location.href = "spc.html";
-            } else if (input === "hitsounds") {
-                window.location.href = "hitsounds.html";
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -75,10 +71,11 @@
             </ul>
         </nav>
     </header>
-    <section id="cheats">
-        <h2>Codes</h2>
-        <textarea id="codeInput" class="textbox" rows="4" placeholder="Enter your codes here..."></textarea>
-        <button onclick="checkInput()">Submit</button>
+    <section id="hitsounds">
+        <h2>Hitsounds Downloads</h2>
+        <a href="downloads/Argon%20Hitsounds.zip" class="download-link" download>Download Argon Hitsounds</a>
+        <a href="downloads/Argonpro%20Hitsounds.zip" class="download-link" download>Download Argon Pro Hitsounds</a>
+        <a href="downloads/Triangles%20Hitsounds.zip" class="download-link" download>Download Triangles Hitsounds</a>
     </section>
     <footer>
         <p>&copy; 2024 Complexity osu! Skin</p>

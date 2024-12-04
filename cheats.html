@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complexity osu! Skin - Cheats</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: grey;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: darkgrey;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .textbox {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+    <script>
+        function checkInput() {
+            var input = document.getElementById("codeInput").value.toLowerCase();
+            if (input === "special thanks") {
+                window.location.href = "spc.html";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="form.html">Community</a></li>
+                <li><a href="https://osu.ppy.sh/community/forums/topics/2006176?n=1">Download</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="cheats">
+        <h2>Codes</h2>
+        <textarea id="codeInput" class="textbox" rows="4" placeholder="Enter your codes here..."></textarea>
+        <button onclick="checkInput()">Submit</button>
+    </section>
+    <footer>
+        <p>&copy; 2024 Complexity osu! Skin</p>
+    </footer>
+</body>
+</html>

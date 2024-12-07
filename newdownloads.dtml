@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complexity osu! Skin</title>
+    <title>Download Complexity V2</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
         }
         header {
             background-color: #333;
+            color: white;
             padding: 10px 0;
         }
         nav ul {
@@ -34,19 +37,24 @@
         section {
             padding: 20px;
         }
-        .complaint-button {
+        .download-button {
             display: block;
-            margin: 20px 0 0 0;
-            background-color: #f44336;
+            margin: 20px auto;
+            padding: 10px;
+            background: url('screenies/dp/pause-retry@2x.png') no-repeat center center;
+            background-size: cover;
             color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
             text-align: center;
             text-decoration: none;
+            width: 200px;
+            height: 100px;
+            line-height: 100px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
         }
-        .complaint-button:hover {
-            background-color: #d32f2f;
+        .download-button:hover {
+            background-color: rgba(0, 0, 0, 0.5);
         }
         footer {
             background-color: #333;
@@ -65,28 +73,17 @@
             <ul>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="form.html">Community</a></li>
-                <li><a href="newdownloads.dtml">Download</a></li>
+                <li><a href="newdownload.html">Download</a></li>
                 <li><a href="cheats.html">Cheats</a></li>
                 <li><a href="crew.html">Crew</a></li>
             </ul>
         </nav>
     </header>
-    <section id="about">
-        <h2>About the Skin</h2>
-        <p>The skin is supposed to be a new version of Complexity. Complexity 1.1 was the biggest update, but now... Version 2 is now <b>among us</b>.</p>
-    </section>
-    <section id="community">
-        <h2>Community and Feedback</h2>
-        <p>Join the discussion and share your feedback on the <a href="https://osu.ppy.sh/community/forums/topics/2006176?n=1">osu! forums</a>.</p>
-    </section>
     <section id="download">
         <h2>Download Complexity V2</h2>
-        <a href="downloads/complexity.new.v2.osk" download="complexity.new.v2.osk">
-            <button>Download Complexity V2</button>
-        </a>
+        <a href="downloads/complexity.new.v2.osk" download="complexity.new.v2.osk" class="download-button">Download</a>
     </section>
     <footer>
-        <a href="complaints.html" class="complaint-button">Have A Complaint?</a>
         <p>&copy; 2024 Complexity osu! Skin</p>
     </footer>
 </body>

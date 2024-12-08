@@ -101,12 +101,18 @@
 
         function incrementCounter() {
             runTransaction(counterRef, (currentValue) => {
-                return (currentValue || 0) + 1;
+                if (currentValue === null) {
+                    return 1;
+                } else {
+                    return currentValue + 1;
+                }
             }).then(() => {
                 get(counterRef).then((snapshot) => {
                     const counterValue = snapshot.val();
                     document.getElementById('downloadCounter').innerText = `Downloads: ${counterValue}`;
                 });
+            }).catch((error) => {
+                console.error('Transaction failed: ', error);
             });
         }
     </script>
@@ -123,6 +129,7 @@
             </ul>
         </nav>
     </header>
+    //should be fixedd
     <section id="download">
         <h2>Download Complexity V2</h2>
         <a href="downloads/complexity.new.v2.osk" download="complexity.new.v2.osk" class="download-button" onclick="incrementCounter()">Download</a>

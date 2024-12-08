@@ -71,12 +71,43 @@
             width: 100%;
         }
     </style>
-    <script>
-        let counter = 0;
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getDatabase, ref, get, set, runTransaction } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBc93htd-plVuV3vwHtoWyhGsmik0xflKcI",
+            authDomain: "counter-4d046.firebaseapp.com",
+            databaseURL: "https://counter-4d046-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "counter-4d046",
+            storageBucket: "counter-4d046.firebasestorage.app",
+            messagingSenderId: "346770545675",
+            appId: "1:346770545675:web:a97e88452ed37db008fb0e",
+            measurementId: "G-2T8JJW7TEV"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Initialize counter value
+        const counterRef = ref(database, 'downloadCounter');
+        get(counterRef).then((snapshot) => {
+            const counterValue = snapshot.val() || 0;
+            document.getElementById('downloadCounter').innerText = `Downloads: ${counterValue}`;
+        });
 
         function incrementCounter() {
-            counter++;
-            document.getElementById('downloadCounter').innerText = `Downloads: ${counter}`;
+            runTransaction(counterRef, (currentValue) => {
+                return (currentValue || 0) + 1;
+            }).then(() => {
+                get(counterRef).then((snapshot) => {
+                    const counterValue = snapshot.val();
+                    document.getElementById('downloadCounter').innerText = `Downloads: ${counterValue}`;
+                });
+            });
         }
     </script>
 </head>

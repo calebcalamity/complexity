@@ -52,9 +52,14 @@
             border: none;
             border-radius: 5px;
             font-size: 16px;
+            cursor: pointer;
         }
         .download-button:hover {
             background-color: rgba(0, 0, 0, 0.5);
+        }
+        .counter {
+            font-size: 18px;
+            margin: 20px 0;
         }
         footer {
             background-color: #333;
@@ -66,6 +71,14 @@
             width: 100%;
         }
     </style>
+    <script>
+        let counter = 0;
+
+        function incrementCounter() {
+            counter++;
+            document.getElementById('downloadCounter').innerText = `Downloads: ${counter}`;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -81,7 +94,8 @@
     </header>
     <section id="download">
         <h2>Download Complexity V2</h2>
-        <a href="downloads/complexity.new.v2.osk" download="complexity.new.v2.osk" class="download-button">Download</a>
+        <a href="downloads/complexity.new.v2.osk" download="complexity.new.v2.osk" class="download-button" onclick="incrementCounter()">Download</a>
+        <div id="downloadCounter" class="counter">Downloads: 0</div>
     </section>
     <footer>
         <p>&copy; 2024 Complexity osu! Skin</p>

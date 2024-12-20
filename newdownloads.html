@@ -74,6 +74,7 @@
     <script>
         const backendUrl = 'https://script.google.com/macros/s/AKfycbzYuGwoe514-jdhv_DAP0hxmeElvtlcYG-FvPjVkHzsbiN0sr2Kbu0lXXO9KjO08JgDDQ/exec';
 
+        // Fetch the current counter value from the server
         document.addEventListener('DOMContentLoaded', () => {
             fetch(`${backendUrl}`)
                 .then(response => response.json())
@@ -82,6 +83,7 @@
                 });
         });
 
+        // Function to increment the counter and update it on the server
         function incrementCounter() {
             fetch(`${backendUrl}`, { method: 'POST' })
                 .then(response => response.json())

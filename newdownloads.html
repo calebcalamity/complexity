@@ -71,49 +71,23 @@
             width: 100%;
         }
     </style>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getDatabase, ref, get, set, runTransaction } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
+    <script>
+        const backendUrl = 'https://script.google.com/macros/s/AKfycbzYuGwoe514-jdhv_DAP0hxmeElvtlcYG-FvPjVkHzsbiN0sr2Kbu0lXXO9KjO08JgDDQ/exec';
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBc93htd-plVuV3vwHtoWyhGsmik0xflKcI",
-            authDomain: "counter-4d046.firebaseapp.com",
-            databaseURL: "https://counter-4d046-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "counter-4d046",
-            storageBucket: "counter-4d046.firebasestorage.app",
-            messagingSenderId: "346770545675",
-            appId: "1:346770545675:web:a97e88452ed37db008fb0e",
-            measurementId: "G-2T8JJW7TEV"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const database = getDatabase(app);
-
-        // Initialize counter value
-        const counterRef = ref(database, 'downloadCounter');
-        get(counterRef).then((snapshot) => {
-            const counterValue = snapshot.val() || 0;
-            document.getElementById('downloadCounter').innerText = `Downloads: ${counterValue}`;
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch(`${backendUrl}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('downloadCounter').innerText = `Downloads: ${data.count}`;
+                });
         });
 
         function incrementCounter() {
-            runTransaction(counterRef, (currentValue) => {
-                if (currentValue === null) {
-                    return 1;
-                } else {
-                    return currentValue + 1;
-                }
-            }).then(() => {
-                get(counterRef).then((snapshot) => {
-                    const counterValue = snapshot.val();
-                    document.getElementById('downloadCounter').innerText = `Downloads: ${counterValue}`;
+            fetch(`${backendUrl}`, { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('downloadCounter').innerText = `Downloads: ${data.count}`;
                 });
-            }).catch((error) => {
-                console.error('Transaction failed: ', error);
-            });
         }
     </script>
 </head>
@@ -129,7 +103,6 @@
             </ul>
         </nav>
     </header>
-    //should be fixedd
     <section id="download">
         <h2>Download Complexity V2</h2>
         <a href="downloads/complexity.new.v2.osk" download="complexity.new.v2.osk" class="download-button" onclick="incrementCounter()">Download</a>
